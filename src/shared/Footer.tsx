@@ -5,11 +5,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {}
           <div>
-            <h4 className="mb-4 text-xl font-bold text-white">Veterinary Web</h4>
+            <h4 className="mb-4 text-xl font-bold text-white">
+              Veterinary Web
+            </h4>
             <p className="mb-6 leading-relaxed text-slate-300">
-                Cuidamos de tus mascotas con amor y profesionalismo. Síguenos en 
-                nuestras redes sociales para estar al día con 
-                nuestras novedades y consejos de cuidado animal.
+              Cuidamos de tus mascotas con amor y profesionalismo. Síguenos en
+              nuestras redes sociales para estar al día con nuestras novedades y
+              consejos de cuidado animal.
             </p>
 
             <div className="flex gap-4">
@@ -52,7 +54,9 @@ const Footer = () => {
                 <div className="text-2xl">✉</div>
                 <div>
                   <strong className="block text-white">Email</strong>
-                  <div className="text-sm text-slate-400">anderson.monge@ucr.ac.cr</div>
+                  <div className="text-sm text-slate-400">
+                    jacqueline.oviedoiranda@ucr.ac.cr
+                  </div>
                 </div>
               </div>
 
@@ -61,7 +65,8 @@ const Footer = () => {
                 <div>
                   <strong className="block text-white">Dirección</strong>
                   <div className="text-sm text-slate-400">
-                    100 metros Norte del parque central de grecia, Alajuela, Costa Rica
+                    100 metros Norte del parque central de grecia, Alajuela,
+                    Costa Rica
                   </div>
                 </div>
               </div>
