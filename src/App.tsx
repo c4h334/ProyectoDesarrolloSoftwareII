@@ -1,7 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./shared/Header.tsx";
-import Footer from "./shared/Footer.tsx";
-
 import Home from "./features/home/Home";
 import Layout from "./components/layout/layout.tsx";
 import PetList from "./features/pets/PetList";
