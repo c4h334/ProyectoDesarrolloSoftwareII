@@ -9,7 +9,7 @@ const Home = () => {
           Cuidamos de tus mascotas con amor y profesionalismo
         </p>
 
-        {}
+    
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
             <div className="text-4xl mb-4">Imagen de perrito</div>
