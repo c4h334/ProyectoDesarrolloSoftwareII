@@ -1,26 +1,26 @@
 const Home = () => {
   return (
-
     <div className="bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto px-4 py-16">
 
-        {/* Mensaje principal*/ }
+        {/* Mensaje principal */}
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">
             Bienvenido a Nuestra <span className="text-emerald-600">Veterinaria</span>
           </h1>
 
-           {/* Mensaje Secundaria*/ }
+          {/* Mensaje secundario */}
           <p className="text-lg md:text-xl text-slate-600 mb-10">
-            Cuidamos de tus mascotas con <span className="font-semibold">amor</span> y
-            <span className="font-semibold"> profesionalismo</span>
+            Cuidamos de tus mascotas con{" "}
+            <span className="font-semibold">amor</span> y{" "}
+            <span className="font-semibold">profesionalismo</span>.
           </p>
         </div>
 
-        {/* Cuadros */}
+        {/* Servicios */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
 
-          {/* Cuadro 1, Canino */}
+          {/* Cuidado Canino */}
           <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-3xl mx-auto">
               🐶
@@ -33,7 +33,7 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Cuadro 2, Gatos*/}
+          {/* Cuidado Felino */}
           <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 text-3xl mx-auto">
               🐱
@@ -46,7 +46,7 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Cuadro 3, emergencias */}
+          {/* Emergencias */}
           <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-rose-100 text-rose-600 text-3xl mx-auto">
               🚑
@@ -62,7 +62,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-
   );
 };
 

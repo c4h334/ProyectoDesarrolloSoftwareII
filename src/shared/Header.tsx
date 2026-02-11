@@ -42,7 +42,11 @@ const Header = () => {
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
                   }
                 >
                   Home
@@ -53,10 +57,14 @@ const Header = () => {
                 <NavLink
                   to="/pets"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-blue-50 text-blue-700"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`
                   }
                 >
-                  Pet List
+                  Mascotas
                 </NavLink>
               </li>
 
@@ -64,7 +72,11 @@ const Header = () => {
                 <NavLink
                   to="/pet-profile"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-indigo-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-indigo-600"
+                    }`
                   }
                 >
                   Pet Profile
@@ -75,10 +87,14 @@ const Header = () => {
                 <NavLink
                   to="/client-profile"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-emerald-50 text-emerald-700"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`
                   }
                 >
-                  Client Profile
+                  Perfil
                 </NavLink>
               </li>
             </ul>
@@ -93,7 +109,13 @@ const Header = () => {
                 <NavLink
                   to="/"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
+                  }
                 >
                   Home
                 </NavLink>
@@ -102,16 +124,28 @@ const Header = () => {
                 <NavLink
                   to="/pets"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
+                  }
                 >
-                  Pet List
+                  Mascotas
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/pet-profile"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-indigo-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-indigo-600"
+                    }`
+                  }
                 >
                   Pet Profile
                 </NavLink>
@@ -120,9 +154,15 @@ const Header = () => {
                 <NavLink
                   to="/client-profile"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-emerald-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-emerald-600"
+                    }`
+                  }
                 >
-                  Client Profile
+                  Perfil
                 </NavLink>
               </li>
             </ul>
