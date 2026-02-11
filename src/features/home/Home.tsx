@@ -1,37 +1,64 @@
-
-
 const Home = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          Bienvenido a Nuestra Veterinaria
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Cuidamos de tus mascotas con amor y profesionalismo
-        </p>
-       
-        {}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-            <div className="text-4xl mb-4">Imagen de perrito</div>
-            <h3 className="text-xl font-semibold mb-2">Cuidado Canino</h3>
-            <p className="text-gray-600">
-              Servicios especializados para perros
+    <div className="bg-gradient-to-b from-emerald-50 to-white">
+      <div className="container mx-auto px-4 py-16">
+
+        {/* Mensaje principal */}
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">
+            Bienvenido a Nuestra <span className="text-emerald-600">Veterinaria</span>
+          </h1>
+
+          {/* Mensaje secundario */}
+          <p className="text-lg md:text-xl text-slate-600 mb-10">
+            Cuidamos de tus mascotas con{" "}
+            <span className="font-semibold">amor</span> y{" "}
+            <span className="font-semibold">profesionalismo</span>.
+          </p>
+        </div>
+
+        {/* Servicios */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
+          {/* Cuidado Canino */}
+          <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-3xl mx-auto">
+              🐶
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">
+              Cuidado Canino
+            </h3>
+            <p className="text-slate-600 text-center">
+              Servicios especializados para perros, enfocados en su bienestar y salud.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-            <div className="text-4xl mb-4">Imagen de gato</div>
-            <h3 className="text-xl font-semibold mb-2">Cuidado Felino</h3>
-            <p className="text-gray-600">Atención especializada para gatos</p>
+          {/* Cuidado Felino */}
+          <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 text-3xl mx-auto">
+              🐱
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">
+              Cuidado Felino
+            </h3>
+            <p className="text-slate-600 text-center">
+              Atención especializada para gatos con un enfoque delicado y profesional.
+            </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-            <div className="text-4xl mb-4">Imagen de emergencia</div>
-            <h3 className="text-xl font-semibold mb-2">Emergencias 24/7</h3>
-            <p className="text-gray-600">Disponibles en todo momento</p>
+          {/* Emergencias */}
+          <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-rose-100 text-rose-600 text-3xl mx-auto">
+              🚑
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">
+              Emergencias 24/7
+            </h3>
+            <p className="text-slate-600 text-center">
+              Disponibles en todo momento para cuidar la vida de tu mascota.
+            </p>
           </div>
+
         </div>
       </div>
     </div>

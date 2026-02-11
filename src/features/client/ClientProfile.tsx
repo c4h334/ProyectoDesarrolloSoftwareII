@@ -1,80 +1,85 @@
-import React, { useState } from "react";
+import { UserIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline"; //iconos a utilizar 
+import React, { useState, useEffect } from "react";
+import type { Client } from "../../models/client.model";
+import clientData from "../../data/client.json"; 
 
-const ClientProfile = () => {
-  const [formData, setFormData] = useState({
-    name: "Anderson Jesús Monge Alvarado",
-    email: "anderson.monge@ucr.ac.cr",
-    phone: "+506 8992 8602",
-  });
+export default function ClientProfile() {
+    const [client, setClient] = useState<Client>(() => {
+    const storedClient = localStorage.getItem("client");
+    return storedClient ? JSON.parse(storedClient) : clientData;
+});
+    const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
+        const { name, value } = e.target;
+        setClient((prevClient) => ({
+            ...prevClient,
+            [name]: value,
+        }));
+    }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        localStorage.setItem("client", JSON.stringify(client));
+        alert("Client information saved!");
+    }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Información actualizada correctamente");
-  };
+    return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+            <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-2xl">
+                <div className="flex flex-col items-center mb-6">
+                    <UserIcon className="h-12 w-12 text-zinc-900" />
+                    <h2 className="text-xl font-semibold">
+                        Profile
+                    </h2>
+                    <p className="text-sm text-gray-500 text-center">
+                        Manage your personal information
+                    </p>
+                </div>
 
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Perfil del Cliente
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Nombre Completo
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+                {/* Formulario para editar la información del cliente (se aprovecharan sus propiedades para el local storage) */}
+                <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
+                    <div>
+                        <label className="block text-sm text-gray-600">Name</label>
+                        <div className="flex items-center border rounded-md p-2">
+                            <UserIcon className="h-5 w-5 text-gray-400 mr-2" />
+                            <input className="w-full outline-none" type="text" name="name" value={client.name} onChange={handleChange} />
+                        </div>
+                    </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Correo Electrónico
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+                    <div>
+                        <label className="block text-sm text-gray-600">Last Name</label>
+                        <div className="flex items-center border rounded-md p-2">
+                            <UserIcon className="h-5 w-5 text-gray-400 mr-2" />
+                            <input className="w-full outline-none" type="text" name="lastName" value={client.lastName} onChange={handleChange} />
+                        </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Teléfono
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+                    </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Guardar Cambios
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
+                    <div>
+                        <label className="block text-sm text-gray-600">Email</label>
+                        <div className="flex items-center border rounded-md p-2">
+                            <EnvelopeIcon className="h-5 w-5 text-gray-400 mr-2" />
+                            <input className="w-full outline-none" type="email" name="email" value={client.email} onChange={handleChange} />
+                        </div>
 
-export default ClientProfile;
+                    </div>
+
+                    <div>
+                        <label className="block text-sm text-gray-600">Phone</label>
+                        <div className="flex items-center border rounded-md p-2">
+                            <PhoneIcon className="h-5 w-5 text-gray-400 mr-2" />
+                            <input className="w-full outline-none" type="text" name="phone" value={client.phone} onChange={handleChange} />
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="md:col-span-2 flex items-center justify-center gap-2 bg-[#12182c] text-white py-2 rounded-md hover:opacity-80 transition"
+                    >
+                        Save
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}
