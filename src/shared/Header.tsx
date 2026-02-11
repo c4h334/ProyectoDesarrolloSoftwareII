@@ -17,7 +17,7 @@ const Header = () => {
           {/* Logo (clickeable) */}
           <Link to="/" className="flex items-center gap-3" aria-label="Go Home">
             <img
-              src="src/pictures/LogoVeterinaria.png"
+              src="src/assets/LogoVeterinaria.png"
               alt="Veterinary Web Logo"
               className="h-24 w-auto"
             />
@@ -65,21 +65,6 @@ const Header = () => {
                   }
                 >
                   Mascotas
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/pet-profile"
-                  className={({ isActive }) =>
-                    `rounded-full px-3 py-1 text-sm font-medium transition ${
-                      isActive
-                        ? "bg-slate-100 text-indigo-700"
-                        : "text-slate-700 hover:bg-slate-100 hover:text-indigo-600"
-                    }`
-                  }
-                >
-                  Pet Profile
                 </NavLink>
               </li>
 
