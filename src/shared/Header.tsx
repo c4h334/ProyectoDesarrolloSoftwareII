@@ -17,9 +17,9 @@ const Header = () => {
           {/* Logo (clickeable) */}
           <Link to="/" className="flex items-center gap-3" aria-label="Go Home">
             <img
-              src="/imagenes/AKlogoWeb.png"
+              src="src/pictures/LogoVeterinaria.png"
               alt="Veterinary Web Logo"
-              className="h-12 w-auto"
+              className="h-24 w-auto"
             />
             <span className="hidden sm:inline text-lg font-bold text-slate-800">
               Veterinaria Web
