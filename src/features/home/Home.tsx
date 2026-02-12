@@ -1,12 +1,14 @@
+import clientData from "../../data/client.json";
+
 const Home = () => {
   return (
     <div className="bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto px-4 py-16">
-
         {/* Mensaje principal */}
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">
-            Bienvenido a Nuestra <span className="text-emerald-600">Veterinaria</span>
+            {clientData.name}, te damos la bienvenida a nuestra{" "}
+            <span className="text-emerald-600">veterinaria</span>
           </h1>
 
           {/* Mensaje secundario */}
@@ -19,7 +21,6 @@ const Home = () => {
 
         {/* Servicios */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-
           {/* Cuidado Canino */}
           <div className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-3xl mx-auto">
@@ -29,7 +30,8 @@ const Home = () => {
               Cuidado Canino
             </h3>
             <p className="text-slate-600 text-center">
-              Servicios especializados para perros, enfocados en su bienestar y salud.
+              Servicios especializados para perros, enfocados en su bienestar y
+              salud.
             </p>
           </div>
 
@@ -42,7 +44,8 @@ const Home = () => {
               Cuidado Felino
             </h3>
             <p className="text-slate-600 text-center">
-              Atención especializada para gatos con un enfoque delicado y profesional.
+              Atención especializada para gatos con un enfoque delicado y
+              profesional.
             </p>
           </div>
 
@@ -58,7 +61,6 @@ const Home = () => {
               Disponibles en todo momento para cuidar la vida de tu mascota.
             </p>
           </div>
-
         </div>
       </div>
     </div>
