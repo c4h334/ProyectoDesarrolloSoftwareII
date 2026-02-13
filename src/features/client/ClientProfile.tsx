@@ -6,7 +6,7 @@ import clientData from "../../data/client.json";
 export default function ClientProfile() {
     const [client, setClient] = useState<Client>(() => {
     const storedClient = localStorage.getItem("client");
-    return storedClient ? JSON.parse(storedClient) : clientData;
+    return storedClient ? JSON.parse(storedClient) : clientData; // fix - using a service prop
 });
     const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
         const { name, value } = e.target;
@@ -23,7 +23,7 @@ export default function ClientProfile() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen flex items-center justify-center p-4">
             <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-2xl">
                 <div className="flex flex-col items-center mb-6">
                     <UserIcon className="h-12 w-12 text-zinc-900" />

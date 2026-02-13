@@ -67,4 +67,57 @@
       { date: "2024-07-05", reason: "Limpieza dental", vet: "Dra. Solís" },
     ],
   },
+
+  {
+    id: 4,
+    name: "Max",
+    species: "Canino",
+    breed: "Golden Retriever",
+    age: "2 años",
+    status: "Sano",
+    weight: "28 kg",
+    allergies: "Ninguna",
+    vaccines: [
+      { name: "Rabia", date: "2025-06-10", next: "2026-06-10" },
+      { name: "Séxtuple", date: "2025-05-01", next: "2026-05-01" },
+    ],
+    consultations: [
+      {
+        date: "2026-03-15",
+        reason: "Control anual",
+        vet: "Dra. Solís",
+      },
+      {
+        date: "2026-07-01",
+        reason: "Refuerzo vacuna",
+        vet: "Dr. Pérez",
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Mía",
+    species: "Felino",
+    breed: "Maine Coon",
+    age: "4 años",
+    status: "Asma leve",
+    weight: "6 kg",
+    allergies: "Polvo",
+    vaccines: [
+      { name: "Triple Felina", date: "2025-07-20", next: "2026-07-20" },
+      { name: "Rabia Felina", date: "2025-08-01", next: "2026-08-01" },
+    ],
+    consultations: [
+      {
+        date: "2026-02-25",
+        reason: "Chequeo respiratorio",
+        vet: "Dr. Pérez",
+      },
+      {
+        date: "2026-04-10",
+        reason: "Vacunación anual",
+        vet: "Dra. Solís",
+      },
+    ],
+  },
 ];
