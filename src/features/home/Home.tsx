@@ -1,9 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
-import clientData from "../../data/client.json";
-import SummaryCard from "../client/SummaryComponents/SummaryCard";
-import UpcomingAppointments from "../client/SummaryComponents/UpcomingAppointments";
-import VaccinesReminder from "../client/SummaryComponents/VaccinesReminder";
+import clientData from "../../data/client";
+import ClientSummary from "../client/ClientSummary";
 
 export default function Home() {
   const [showDashboard, setShowDashboard] = useState(false);
@@ -84,13 +82,7 @@ export default function Home() {
       {/* DASHBOARD */}
       {showDashboard && (
         <section ref={summaryRef} className="px-8 pb-16 mt-20">
-          <div className="mb-10">
-            <SummaryCard />
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <UpcomingAppointments />
-            <VaccinesReminder />
-          </div>
+         <ClientSummary />
         </section>
       )}
     </div>
