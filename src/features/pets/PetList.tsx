@@ -39,6 +39,8 @@ const PetList = () => {
             </ul>
             <Link
               to={`/pet-profile/${pet.id}`}
+              //lo que hace que sea testeable 
+              data-cy={`view-profile-${pet.id}`}
               className="block w-full text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors"
             >
               Ver Perfil
