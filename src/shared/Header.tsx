@@ -6,6 +6,9 @@ const linkBase =
 const activeLink = "text-blue-700 font-semibold";
 
 const Header = () => {
+
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -82,6 +85,15 @@ const Header = () => {
                   Perfil
                 </NavLink>
               </li>
+
+              <li>
+                <button
+                  onClick={() => setShowLogoutModal(true)}
+                  className="rounded-full px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-50 transition"
+                >
+                  Cerrar Sesión
+                </button>
+              </li>
             </ul>
           </nav>
         </div>
@@ -154,6 +166,36 @@ const Header = () => {
           </nav>
         )}
       </div>
+
+        {showLogoutModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+        <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4">
+            ¿Desea cerrar sesión?
+          </h2>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={() => {
+                setShowLogoutModal(false);
+                alert("Se ha cerrado la sesión correctamente");
+              }}
+              className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+            >
+              Sí
+            </button>
+
+            <button
+              onClick={() => setShowLogoutModal(false)}
+              className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+)}
+
+
     </header>
   );
 };
