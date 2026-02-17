@@ -2,7 +2,7 @@ import { Activity, PawPrint } from "lucide-react";
 import { pets } from "../../../data/pets";
 import { useState } from "react";
 import type { Client } from "../../../models/client.model";
-import clientData from "../../../data/client.json"; 
+import clientData from "../../../data/client"; 
 
 export default function SummaryCard() {
     const totalPets = pets.length;

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
-import clientData from "../../data/client.json";
+import clientData from "../../data/client";
 import SummaryCard from "../client/SummaryComponents/SummaryCard";
 import UpcomingAppointments from "../client/SummaryComponents/UpcomingAppointments";
 import VaccinesReminder from "../client/SummaryComponents/VaccinesReminder";
