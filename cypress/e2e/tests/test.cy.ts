@@ -1,40 +1,51 @@
 describe("Pruebas de navegacion", () => {
+
   it("should load home page", () => {
+
     cy.visit("/");
-    cy.contains(/bienvenida a nuestra veterinaria/i); //evitar que el nombre del cliente cambie el test, por eso se usa regex y no un string exacto
+
+    cy.contains(/bienvenida a nuestra veterinaria/i);
+    
   });
 
   it("Moverse por toda la pagina", () => {
+
     cy.visit("/");
+
     cy.location("pathname").should("eq", "/");
 
     cy.visit("/pets");
     cy.location("pathname").should("eq", "/pets");
 
     cy.visit("client-profile");
+
     cy.location("pathname").should("eq", "/client-profile");
   });
 });
 
 describe("Pruebas Home - Mostrar Resumen", () => {
+
   it("should show client summary after clicking 'Ver Resumen'", () => {
+
     cy.visit("/");
     
     cy.contains("Ver Resumen").should("be.visible");
-      
+
     cy.contains("Ver Resumen").click();
-    
+
     cy.get("[data-cy='client-summary']").should("be.visible");
   });
 });
 
-
 describe("Pruebas en pet list", () => {
+
   it("should display all pets", () => {
     cy.visit("/pets");
     cy.contains("Bonnie");
     cy.contains("Sasha");
     cy.contains("Loly");
+    cy.contains("Max");
+    cy.contains("Mía");
   });
 
   it("should display 5 pet cards", () => {
@@ -56,7 +67,9 @@ describe("Pruebas pet profile", () => {
     cy.visit("/pet-profile/1");
 
     cy.contains("Bonnie");
+
     cy.contains("Jack Russell Terrier");
+
     cy.contains("7 kg");
   });
 
@@ -93,11 +106,16 @@ describe("Pruebas footer", () => {
   });
 });
 
-
-
 describe("Prueba 404", () => {
+
   it("should show Not found page", () => {
+
     cy.visit("/random-route");
-    cy.location("pathname").should("eq", "/NotFound");
+
+    cy.location("pathname").should("eq", "/random-route");
+
+    cy.getBySel("not-found-page").should("be.visible");
+
+    cy.getBySel("not-found-title").should("have.text", "404");
   });
 });
