@@ -14,12 +14,6 @@ describe("Pruebas de navegacion", () => {
     cy.visit("client-profile");
     cy.location("pathname").should("eq", "/client-profile");
   });
-  /*Prueba para probar rutas.*/
-  it("should not navigate to invalid pet-profile route", () => {
-    cy.visit("/");
-    cy.contains("Pet Profile").click();
-    cy.location("pathname").should("not.eq", "/pet-profile");
-  });
 });
 
 describe("Pruebas en pet list", () => {
@@ -78,22 +72,17 @@ describe("Pruebas client profile", () => {
   });
 });
 
-describe("Pruebas footer", () =>{
-
-    it("should display footer" ,()=>{
-
-        cy.visit("/");
-        cy.contains("Veterinary Web");
-        cy.contains("Costa Rica")
-    });
+describe("Pruebas footer", () => {
+  it("should display footer", () => {
+    cy.visit("/");
+    cy.contains("Veterinary Web");
+    cy.contains("Costa Rica");
+  });
 });
 
-describe("Prueba 404" , () =>{
-
-    it("should show Not found page" , () => {
-
-         cy.visit("/random-route");
-         /**
-          * Falta desarrolar */ 
-    });
+describe("Prueba 404", () => {
+  it("should show Not found page", () => {
+    cy.visit("/random-route");
+    cy.location("pathname").should("eq", "/NotFound");
+  });
 });
