@@ -18,4 +18,3 @@ const Layout = ({ children }: LayoutProps) => {
 
 export default Layout;
 
-{/**Esto de aca no se necesita*/}

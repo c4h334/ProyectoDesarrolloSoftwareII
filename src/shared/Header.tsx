@@ -6,6 +6,9 @@ const linkBase =
 const activeLink = "text-blue-700 font-semibold";
 
 const Header = () => {
+
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -17,7 +20,7 @@ const Header = () => {
           {/* Logo (clickeable) */}
           <Link to="/" className="flex items-center gap-3" aria-label="Go Home">
             <img
-              src="src/pictures/LogoVeterinaria.png"
+              src="src/assets/LogoVeterinaria.png"
               alt="Veterinary Web Logo"
               className="h-24 w-auto"
             />
@@ -42,7 +45,11 @@ const Header = () => {
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
                   }
                 >
                   Home
@@ -53,21 +60,14 @@ const Header = () => {
                 <NavLink
                   to="/pets"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-blue-50 text-blue-700"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`
                   }
                 >
-                  Pet List
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/pet-profile"
-                  className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
-                  }
-                >
-                  Pet Profile
+                  Mascotas
                 </NavLink>
               </li>
 
@@ -75,11 +75,24 @@ const Header = () => {
                 <NavLink
                   to="/client-profile"
                   className={({ isActive }) =>
-                    isActive ? `${linkBase} ${activeLink}` : linkBase
+                    `rounded-full px-3 py-1 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-emerald-50 text-emerald-700"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`
                   }
                 >
-                  Client Profile
+                  Perfil
                 </NavLink>
+              </li>
+
+              <li>
+                <button
+                  onClick={() => setShowLogoutModal(true)}
+                  className="rounded-full px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-50 transition"
+                >
+                  Cerrar Sesión
+                </button>
               </li>
             </ul>
           </nav>
@@ -93,7 +106,13 @@ const Header = () => {
                 <NavLink
                   to="/"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
+                  }
                 >
                   Home
                 </NavLink>
@@ -102,16 +121,28 @@ const Header = () => {
                 <NavLink
                   to="/pets"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-blue-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`
+                  }
                 >
-                  Pet List
+                  Mascotas
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/pet-profile"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-indigo-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-indigo-600"
+                    }`
+                  }
                 >
                   Pet Profile
                 </NavLink>
@@ -120,15 +151,51 @@ const Header = () => {
                 <NavLink
                   to="/client-profile"
                   onClick={closeMenu}
-                  className="block rounded px-4 py-2 text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-slate-100 text-emerald-700"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-emerald-600"
+                    }`
+                  }
                 >
-                  Client Profile
+                  Perfil
                 </NavLink>
               </li>
             </ul>
           </nav>
         )}
       </div>
+
+        {showLogoutModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+        <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center">
+          <h2 className="text-lg font-semibold text-slate-800 mb-4">
+            ¿Desea cerrar sesión?
+          </h2>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={() => {
+                setShowLogoutModal(false);
+                alert("Se ha cerrado la sesión correctamente");
+              }}
+              className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+            >
+              Sí
+            </button>
+
+            <button
+              onClick={() => setShowLogoutModal(false)}
+              className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+)}
+
+
     </header>
   );
 };

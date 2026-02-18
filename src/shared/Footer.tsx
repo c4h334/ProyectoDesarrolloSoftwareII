@@ -55,7 +55,7 @@ const Footer = () => {
                 <div>
                   <strong className="block text-white">Email</strong>
                   <div className="text-sm text-slate-400">
-                    jacqueline.oviedoiranda@ucr.ac.cr
+                    jacqueline.oviedomiranda@ucr.ac.cr
                   </div>
                 </div>
               </div>
