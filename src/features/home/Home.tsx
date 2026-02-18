@@ -81,7 +81,8 @@ export default function Home() {
 
       {/* DASHBOARD */}
       {showDashboard && (
-        <section ref={summaryRef} className="px-8 pb-16 mt-20">
+        <section ref={summaryRef} className="px-8 pb-16 mt-20"
+         data-cy="client-summary">
          <ClientSummary />
         </section>
       )}

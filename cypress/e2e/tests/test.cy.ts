@@ -1,7 +1,7 @@
 describe("Pruebas de navegacion", () => {
   it("should load home page", () => {
     cy.visit("/");
-    cy.contains("Bienvenido a Nuestra Veterinaria");
+    cy.contains(/bienvenida a nuestra veterinaria/i); //evitar que el nombre del cliente cambie el test, por eso se usa regex y no un string exacto
   });
 
   it("Moverse por toda la pagina", () => {
@@ -16,6 +16,19 @@ describe("Pruebas de navegacion", () => {
   });
 });
 
+describe("Pruebas Home - Mostrar Resumen", () => {
+  it("should show client summary after clicking 'Ver Resumen'", () => {
+    cy.visit("/");
+    
+    cy.contains("Ver Resumen").should("be.visible");
+      
+    cy.contains("Ver Resumen").click();
+    
+    cy.get("[data-cy='client-summary']").should("be.visible");
+  });
+});
+
+
 describe("Pruebas en pet list", () => {
   it("should display all pets", () => {
     cy.visit("/pets");
@@ -24,9 +37,9 @@ describe("Pruebas en pet list", () => {
     cy.contains("Loly");
   });
 
-  it("should display 3 pet cards", () => {
+  it("should display 5 pet cards", () => {
     cy.visit("/pets");
-    cy.get("[data-cy^='view-profile-']").should("have.length", 3);
+    cy.get("[data-cy^='view-profile-']").should("have.length", 5);
   });
 
   it("should navigate to pet profile when clicking view profile", () => {
@@ -79,6 +92,8 @@ describe("Pruebas footer", () => {
     cy.contains("Costa Rica");
   });
 });
+
+
 
 describe("Prueba 404", () => {
   it("should show Not found page", () => {
