@@ -15,6 +15,6 @@ _(En caso de que estas tiren error a pesar de estar en package.json)_
 * **HeroIcons:** ```npm install @heroicons/react```
 
 * **Cypress:** 
-Instalación: ```npm install cypress --save-dev```
-Inicio: ```npm install --save-dev start-server-and-test```
+Instalación: ```npm install cypress --save-dev``` ```npm install --save-dev start-server-and-test```
+Inicio: ```npx cypress open```
 
