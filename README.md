@@ -14,3 +14,8 @@ Luis Diego Quesada Calderón, C4I567
 * LucideReact = ```npm install lucide-react```
 * HeroIcons = ```npm install @heroicons/react```
 
+Cypres: 
+instalacion: npm install cypress - - save-dev
+
+npm install --save-dev start-server-and-test
+
