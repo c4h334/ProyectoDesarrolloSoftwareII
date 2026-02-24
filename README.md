@@ -11,6 +11,6 @@ Luis Diego Quesada Calderón, C4I567
 
 ### Dependencias Externas Usadas
 (En caso de que estas tiren error a pesar de estar en package.json)
-* LucideReact = npm install lucide-react
-* HeroIcons = npm install @heroicons/react
+* LucideReact = ```npm install lucide-react```
+* HeroIcons = ```npm install @heroicons/react```
 
