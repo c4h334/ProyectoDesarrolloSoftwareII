@@ -9,13 +9,12 @@ Jacqueline Oviedo Miranda, C25748
 Luis Diego Quesada Calderón, C4I567
 
 
-### Dependencias Externas Usadas
-(En caso de que estas tiren error a pesar de estar en package.json)
-* LucideReact = ```npm install lucide-react```
-* HeroIcons = ```npm install @heroicons/react```
+### Dependencias externas usadas
+_(En caso de que estas tiren error a pesar de estar en package.json)_
+* **LucideReact:** ```npm install lucide-react```
+* **HeroIcons:** ```npm install @heroicons/react```
 
-Cypres: 
-instalacion: npm install cypress - - save-dev
-
-npm install --save-dev start-server-and-test
+* **Cypress:** 
+Instalación: ```npm install cypress - - save-dev```
+Inicio: ```npm install --save-dev start-server-and-test```
 
