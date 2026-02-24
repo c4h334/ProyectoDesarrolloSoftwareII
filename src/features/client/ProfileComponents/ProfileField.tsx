@@ -1,5 +1,5 @@
 import React from "react";
-
+// Propiedades del campo reutilizable para el perfil
 type ProfileFieldProps = {
   label: string;
   icon: React.ReactNode;
@@ -10,7 +10,8 @@ type ProfileFieldProps = {
   placeholder?: string;
   required?: boolean;
 };
-
+// Componente reutilizable para campos del perfil de usuario
+// Incluye etiqueta, ícono y estilos consistentes para todos los inputs
 export function ProfileField({
   label,
   icon,

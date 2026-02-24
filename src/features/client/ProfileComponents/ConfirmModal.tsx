@@ -1,9 +1,11 @@
+// Propiedades que recibe el modal de confirmación
 type ConfirmModalProps = {
-  message: string;
-  onConfirm: () => void;
-  onCancel: () => void;
+  message: string;// Mensaje que se mostrará dentro del modal
+  onConfirm: () => void;// Función que se ejecuta al confirmar
+  onCancel: () => void;// Función que se ejecuta al cancelar
 };
-
+// Modal reutilizable para confirmar acciones del usuario
+// Se utiliza, por ejemplo, antes de guardar cambios importantes
 export function ConfirmModal({ message, onConfirm, onCancel }: ConfirmModalProps) {
   return (
     <div className="fixed inset-0 flex items-center justify-center">

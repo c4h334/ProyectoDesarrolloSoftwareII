@@ -3,13 +3,16 @@ import { pets } from "../../../data/pets";
 import { useState } from "react";
 import type { Client } from "../../../models/client.model";
 import clientData from "../../../data/client"; 
-
+// Tarjeta resumen del perfil del cliente
+// Muestra el nombre y estadísticas generales de sus mascotas
 export default function SummaryCard() {
     const totalPets = pets.length;
 
+    // Obtiene la información del cliente desde localStorage
+    // Si no existe, usa los datos por defecto
     const [client] = useState<Client>(() => {
         const storedClient = localStorage.getItem("client");
-        return storedClient ? JSON.parse(storedClient) : clientData; // Local storage para mantener la información del cliente incluso después de recargar la página
+        return storedClient ? JSON.parse(storedClient) : clientData; 
     });
 
     const petsWithConditions = pets.filter(
