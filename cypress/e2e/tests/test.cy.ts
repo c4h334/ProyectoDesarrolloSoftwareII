@@ -1,15 +1,11 @@
 describe("Pruebas de navegacion", () => {
-
   it("should load home page", () => {
-
     cy.visit("/");
 
     cy.contains(/bienvenida a nuestra veterinaria/i);
-    
   });
 
   it("Moverse por toda la pagina", () => {
-
     cy.visit("/");
 
     cy.location("pathname").should("eq", "/");
@@ -24,11 +20,9 @@ describe("Pruebas de navegacion", () => {
 });
 
 describe("Pruebas Home - Mostrar Resumen", () => {
-
   it("should show client summary after clicking 'Ver Resumen'", () => {
-
     cy.visit("/");
-    
+
     cy.contains("Ver Resumen").should("be.visible");
 
     cy.contains("Ver Resumen").click();
@@ -38,7 +32,6 @@ describe("Pruebas Home - Mostrar Resumen", () => {
 });
 
 describe("Pruebas en pet list", () => {
-
   it("should display all pets", () => {
     cy.visit("/pets");
     cy.contains("Bonnie");
@@ -107,9 +100,7 @@ describe("Pruebas footer", () => {
 });
 
 describe("Prueba 404", () => {
-
   it("should show Not found page", () => {
-
     cy.visit("/random-route");
 
     cy.location("pathname").should("eq", "/random-route");
@@ -117,5 +108,24 @@ describe("Prueba 404", () => {
     cy.getBySel("not-found-page").should("be.visible");
 
     cy.getBySel("not-found-title").should("have.text", "404");
+  });
+});
+
+describe("Pruebas Header", () => {
+  it("should display desktop navigation", () => {
+    cy.viewport(1280, 800);
+    cy.visit("/");
+
+    cy.getBySel("header").should("be.visible");
+    cy.getBySel("nav-home").should("be.visible");
+    cy.getBySel("nav-pets").should("be.visible");
+    cy.getBySel("nav-profile").should("be.visible");
+  });
+
+  it("should open logout modal", () => {
+    cy.viewport(1280, 800);
+    cy.visit("/");
+    cy.getBySel("logout-button").click();
+    cy.getBySel("logout-modal").should("be.visible");
   });
 });
