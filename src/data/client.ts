@@ -1,3 +1,4 @@
+// Información básica del cliente que se mostrará en su perfil
 const client = {
     name: "Alisha",
     lastName: "Doe",

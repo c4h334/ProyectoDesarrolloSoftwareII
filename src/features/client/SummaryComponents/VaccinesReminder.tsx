@@ -1,10 +1,12 @@
 import { pets } from "../../../data/pets";
-
+// Componente que muestra un recordatorio con las próximas vacunas
+// Lista hasta 5 vacunas futuras, ordenadas por la fecha más cercana
 type VaccinesProps = { className?: string };
 
 export default function VaccinesReminder({ className }: VaccinesProps) {
   const today = new Date();
-
+// Construye una lista plana de vacunas de todas las mascotas,
+// filtra las futuras, ordena por fecha y toma las primeras 5
   const upcomingVaccines = pets
     .flatMap((pet: { vaccines: any[]; name: string }) =>
       pet.vaccines.map((vaccine) => ({

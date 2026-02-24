@@ -1,4 +1,6 @@
-﻿export const pets = [
+﻿// Lista de mascotas registradas en el sistema
+// Cada objeto contiene información médica y general de la mascota
+export const pets = [
   {
     id: 1,
     name: "Bonnie",

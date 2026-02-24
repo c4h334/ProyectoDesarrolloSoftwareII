@@ -2,11 +2,14 @@ import { CalendarIcon } from "@heroicons/react/16/solid";
 import { pets } from "../../../data/pets";
 
 
-
+// Componente que muestra una lista de próximas citas en formato de línea de tiempo
 export default function UpcomingAppointments() {
+    // Fecha actual para filtrar únicamente citas futuras o de hoy
     const today = new Date();
     console.log("Today:", today); //debug: verificar la fecha actual
 
+    // Construye una lista plana de consultas de todas las mascotas,
+  // luego filtra las futuras y las ordena por fecha ascendente
     const upcomingConsultations = pets
         .flatMap((pet) =>
             pet.consultations.map((consultation) => ({
@@ -21,8 +24,7 @@ export default function UpcomingAppointments() {
             (a, b) =>
                 new Date(a.date).getTime() - new Date(b.date).getTime()
         );
-
-    //Design of the timeline
+ {/* Contenedor estilo timeline */}
     return (
         <div className="bg-white rounded-2xl p-8 shadow-md">
             <h2 className="text-xl font-semibold text-black mb-8">
