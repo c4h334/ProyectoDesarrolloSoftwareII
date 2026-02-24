@@ -2,12 +2,17 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { pets } from "../../data/pets";
 
+// Perfil detallado de una mascota con secciones por pestanas
 const PetProfile = () => {
+  // Lee el id desde la ruta actual
   const { id } = useParams();
+  // Controla que bloque de informacion se muestra
   const [activeTab, setActiveTab] = useState("resumen");
 
+  // Busca la mascota en la data local segun el id de la URL
   const pet = pets.find((p) => p.id === Number(id));
 
+  // Vista de respaldo cuando no existe una mascota con ese id
   if (!pet) {
     return (
       <div className="container mx-auto px-4 py-8 text-center">
@@ -37,6 +42,7 @@ const PetProfile = () => {
           </p>
         </div>
 
+        {/* Navegacion por pestanas del perfil */}
         <div className="flex border-b border-gray-200">
           {["resumen", "vacunas", "consultas"].map((tab) => (
             <button
@@ -54,6 +60,7 @@ const PetProfile = () => {
         </div>
 
         <div className="p-6">
+          {/* Datos generales de la mascota */}
           {activeTab === "resumen" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -80,6 +87,7 @@ const PetProfile = () => {
             </div>
           )}
 
+          {/* Historial de vacunas con tabla y estado vacio */}
           {activeTab === "vacunas" && (
             <div className="overflow-x-auto">
               <table className="w-full text-left">
@@ -115,6 +123,7 @@ const PetProfile = () => {
             </div>
           )}
 
+          {/* Historial de consultas con tarjetas */}
           {activeTab === "consultas" && (
             <div className="space-y-4">
               {pet.consultations.length > 0 ? (

@@ -4,6 +4,7 @@ import Layout from "./components/layout/layout.tsx";
 import PetList from "./features/pets/PetList";
 import PetProfile from "./features/pets/PetProfile";
 import ClientProfile from "./features/client/ClientProfile";
+import { NotFound } from "./shared/NotFound.tsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/pets" element={<PetList />} />
           <Route path="/pet-profile/:id" element={<PetProfile />} />
           <Route path="/client-profile" element={<ClientProfile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>

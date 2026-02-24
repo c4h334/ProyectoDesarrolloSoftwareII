@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="mt-auto bg-slate-900 text-slate-200">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {}
+          {/* Columna de marca y redes */}
           <div>
             <h4 className="mb-4 text-xl font-bold text-white">
               Veterinary Web
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {}
+          {/* Columna con informacion principal */}
           <div>
             <h4 className="mb-4 text-xl font-bold text-white">Info</h4>
 
@@ -73,7 +73,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {}
+          {/* Columna de contacto rapido */}
           <div>
             <h4 className="mb-4 text-xl font-bold text-white">Contact</h4>
             <ul className="space-y-3 text-slate-300">
@@ -98,7 +98,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {}
+      {/* Franja inferior con copyright */}
       <div className="border-t border-slate-700">
         <div className="mx-auto max-w-6xl px-4 py-4 text-center text-sm text-slate-400">
           © 2026 Veterinaria Web. Todos los derechos reservados.

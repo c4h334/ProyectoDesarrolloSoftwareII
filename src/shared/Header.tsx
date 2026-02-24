@@ -1,36 +1,40 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const linkBase =
+/*const linkBase =
   "text-slate-700 hover:text-blue-600 font-medium transition-colors";
-const activeLink = "text-blue-700 font-semibold";
+const activeLink = "text-blue-700 font-semibold";*/
 
+// Barra superior con navegacion desktop y movil
 const Header = () => {
-
+  // Controla el modal de confirmacion al cerrar sesion
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+  // Controla si el menu movil esta abierto
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Cierra el menu movil al navegar
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header data-cy= "header" className="sticky top-0 z-50 bg-white shadow-md">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between py-4">
-          {/* Logo (clickeable) */}
-          <Link to="/" className="flex items-center gap-3" aria-label="Go Home">
+          {/* Logo con acceso directo al inicio */}
+          <Link to="/" data-cy="logo-link" className="flex items-center gap-3" aria-label="Go Home">
             <img
               src="src/assets/LogoVeterinaria.png"
               alt="Veterinary Web Logo"
               className="h-24 w-auto"
             />
-            <span className="hidden sm:inline text-lg font-bold text-slate-800">
+            <span data-cy="site-title" className="hidden sm:inline text-lg font-bold text-slate-800">
               Veterinaria Web
             </span>
           </Link>
 
-          {/* Se supone que esto es un menú para que se vea mejor en el cel */}
+          {/* Boton hamburguesa para abrir o cerrar menu movil */}
           <button
+            data-cy="menu-toggle"
             onClick={() => setIsMenuOpen((v) => !v)}
             className="lg:hidden rounded px-3 py-2 text-2xl text-slate-700 hover:bg-slate-100"
             aria-label="Open menu"
@@ -38,12 +42,12 @@ const Header = () => {
             ☰
           </button>
 
-          {/* Navegación pc */}
-          <nav className="hidden lg:block">
+          {/* Navegacion para pantallas grandes */}
+          <nav data-cy="desktop-nav" className="hidden lg:block">
             <ul className="flex items-center gap-8">
               <li>
                 <NavLink
-                  to="/"
+                  to="/" data-cy="nav-home"
                   className={({ isActive }) =>
                     `rounded-full px-3 py-1 text-sm font-medium transition ${
                       isActive
@@ -58,7 +62,7 @@ const Header = () => {
 
               <li>
                 <NavLink
-                  to="/pets"
+                  to="/pets" data-cy="nav-pets"
                   className={({ isActive }) =>
                     `rounded-full px-3 py-1 text-sm font-medium transition ${
                       isActive
@@ -73,7 +77,7 @@ const Header = () => {
 
               <li>
                 <NavLink
-                  to="/client-profile"
+                  to="/client-profile" data-cy="nav-profile"
                   className={({ isActive }) =>
                     `rounded-full px-3 py-1 text-sm font-medium transition ${
                       isActive
@@ -88,6 +92,7 @@ const Header = () => {
 
               <li>
                 <button
+                  data-cy="logout-button"
                   onClick={() => setShowLogoutModal(true)}
                   className="rounded-full px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-50 transition"
                 >
@@ -98,13 +103,14 @@ const Header = () => {
           </nav>
         </div>
 
-        {/* Menú móvil */}
+        {/* Navegacion para pantallas pequenas */}
         {isMenuOpen && (
-          <nav className="lg:hidden pb-4">
+          <nav data-cy="mobile-nav" className="lg:hidden pb-4">
             <ul className="space-y-2">
               <li>
                 <NavLink
                   to="/"
+                   data-cy="mobile-nav-home"
                   onClick={closeMenu}
                   className={({ isActive }) =>
                     `block rounded-lg px-4 py-2 text-sm font-medium transition ${
@@ -120,6 +126,7 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/pets"
+                     data-cy="mobile-nav-pets"
                   onClick={closeMenu}
                   className={({ isActive }) =>
                     `block rounded-lg px-4 py-2 text-sm font-medium transition ${
@@ -134,22 +141,8 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/pet-profile"
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `block rounded-lg px-4 py-2 text-sm font-medium transition ${
-                      isActive
-                        ? "bg-slate-100 text-indigo-700"
-                        : "text-slate-700 hover:bg-slate-100 hover:text-indigo-600"
-                    }`
-                  }
-                >
-                  Pet Profile
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to="/client-profile"
+                  data-cy="mobile-nav-profile"
                   onClick={closeMenu}
                   className={({ isActive }) =>
                     `block rounded-lg px-4 py-2 text-sm font-medium transition ${
@@ -167,35 +160,36 @@ const Header = () => {
         )}
       </div>
 
-        {showLogoutModal && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-        <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4">
-            ¿Desea cerrar sesión?
-          </h2>
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => {
-                setShowLogoutModal(false);
-                alert("Se ha cerrado la sesión correctamente");
-              }}
-              className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
-            >
-              Sí
-            </button>
+      {/* Ventana de confirmacion para cerrar sesion */}
+      {showLogoutModal && (
+        <div data-cy="logout-modal" className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center">
+            <h2 className="text-lg font-semibold text-slate-800 mb-4">
+              ¿Desea cerrar sesión?
+            </h2>
+            <div className="flex justify-center gap-4">
+              <button
+                 data-cy="confirm-logout"
+                onClick={() => {
+                  setShowLogoutModal(false);
+                  alert("Se ha cerrado la sesión correctamente");
+                }}
+                className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+              >
+                Sí
+              </button>
 
-            <button
-              onClick={() => setShowLogoutModal(false)}
-              className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
-            >
-              Cancelar
-            </button>
+              <button
+                data-cy="cancel-logout"
+                onClick={() => setShowLogoutModal(false)}
+                className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-)}
-
-
+      )}
     </header>
   );
 };

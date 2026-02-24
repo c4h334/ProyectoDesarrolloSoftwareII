@@ -1,18 +1,18 @@
-//Modelo para las vacunas
+// Representa una vacuna aplicada o programada para aplicar
 interface Vaccine {
   name: string;
-  date: string; // podrías usar Date si prefieres
+  date: string; // Se mantiene como texto para formato simple
   next: string;
 }
 
-// Modelo para consultas o citas
+// Representa una consulta veterinaria registrada
 interface Consultation {
   date: string;
   reason: string;
   vet: string;
 }
 
-// Modelo principal para mascotas (incluye vacunas y consultas)
+// Estructura principal de una mascota en la app
 export interface Pet {
   id: number;
   name: string;

@@ -1,18 +1,33 @@
 describe("Pruebas de navegacion", () => {
   it("should load home page", () => {
     cy.visit("/");
-    cy.contains("Bienvenido a Nuestra Veterinaria");
+
+    cy.contains(/bienvenida a nuestra veterinaria/i);
   });
 
   it("Moverse por toda la pagina", () => {
     cy.visit("/");
+
     cy.location("pathname").should("eq", "/");
 
     cy.visit("/pets");
     cy.location("pathname").should("eq", "/pets");
 
     cy.visit("client-profile");
+
     cy.location("pathname").should("eq", "/client-profile");
+  });
+});
+
+describe("Pruebas Home - Mostrar Resumen", () => {
+  it("should show client summary after clicking 'Ver Resumen'", () => {
+    cy.visit("/");
+
+    cy.contains("Ver Resumen").should("be.visible");
+
+    cy.contains("Ver Resumen").click();
+
+    cy.get("[data-cy='client-summary']").should("be.visible");
   });
 });
 
@@ -22,11 +37,13 @@ describe("Pruebas en pet list", () => {
     cy.contains("Bonnie");
     cy.contains("Sasha");
     cy.contains("Loly");
+    cy.contains("Max");
+    cy.contains("Mía");
   });
 
-  it("should display 3 pet cards", () => {
+  it("should display 5 pet cards", () => {
     cy.visit("/pets");
-    cy.get("[data-cy^='view-profile-']").should("have.length", 3);
+    cy.get("[data-cy^='view-profile-']").should("have.length", 5);
   });
 
   it("should navigate to pet profile when clicking view profile", () => {
@@ -43,7 +60,9 @@ describe("Pruebas pet profile", () => {
     cy.visit("/pet-profile/1");
 
     cy.contains("Bonnie");
+
     cy.contains("Jack Russell Terrier");
+
     cy.contains("7 kg");
   });
 
@@ -83,6 +102,30 @@ describe("Pruebas footer", () => {
 describe("Prueba 404", () => {
   it("should show Not found page", () => {
     cy.visit("/random-route");
-    cy.location("pathname").should("eq", "/NotFound");
+
+    cy.location("pathname").should("eq", "/random-route");
+
+    cy.getBySel("not-found-page").should("be.visible");
+
+    cy.getBySel("not-found-title").should("have.text", "404");
+  });
+});
+
+describe("Pruebas Header", () => {
+  it("should display desktop navigation", () => {
+    cy.viewport(1280, 800);
+    cy.visit("/");
+
+    cy.getBySel("header").should("be.visible");
+    cy.getBySel("nav-home").should("be.visible");
+    cy.getBySel("nav-pets").should("be.visible");
+    cy.getBySel("nav-profile").should("be.visible");
+  });
+
+  it("should open logout modal", () => {
+    cy.viewport(1280, 800);
+    cy.visit("/");
+    cy.getBySel("logout-button").click();
+    cy.getBySel("logout-modal").should("be.visible");
   });
 });
